@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+unsigned short int target  = atoi(argv[1]);
+short int numPairs = 0;
+short int ones;
+short int sequence_tracker;
+
+while(target != 0 ){
+if(target & 01){
+ones++;
+sequence_tracker++;
+}
+else{
+sequence_tracker =0;
+}
+
+if( sequence_tracker == 2 ){
+numPairs++;
+sequence_tracker = 0;
+}
+target >>= 1;
+}
+
+
+if(numPairs % 2 == 0)
+printf("Even-Parity\t%d" , numPairs);
+else
+printf("Odd-Parity\t%d" , numPairs);
+//return 0;
+}
+
+
